@@ -2,10 +2,7 @@
 
 Screenshots:
 
-
-![Test Image 1](screen1.png) 
-
-![Test Image 2](screen2.png)
+![Test Image 1](screen1.png) ![Test Image 2](screen2.png)
 
 
 This Design is based from 
