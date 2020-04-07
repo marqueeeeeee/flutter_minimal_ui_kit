@@ -5,6 +5,7 @@ import 'package:minimal_ui_kit/widgets/minimal_card.dart';
 import 'package:minimal_ui_kit/widgets/minimal_chart.dart';
 import 'package:minimal_ui_kit/widgets/minimal_drawer.dart';
 import 'package:minimal_ui_kit/widgets/minimal_onboarding_bottom.dart';
+import 'package:minimal_ui_kit/widgets/minimal_radial_progress.dart';
 import 'package:minimal_ui_kit/widgets/minimal_tabs.dart';
 
 void main() {
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => _onboardingPage(context),
         '/dashboard': (context) => DashboardPage(),
         '/details': (context) => DetailsPage(),
+        '/test': (context) => TestRadialProgressPage()
       },
     );
   }
@@ -158,10 +160,29 @@ class DetailsPage extends StatelessWidget {
     return Scaffold(
       appBar: MinimalAppBar(
         showDrawerIcon: false,
-        title: "FOOD",
+        title: "BUDGET",
       ),
       backgroundColor: Colors.white,
-      // body: ,
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          children: <Widget>[
+            SizedBox(height: 10),
+            Container(
+              height: MediaQuery.of(context).size.width * 0.7,
+              child: RadialProgress(
+                initialProgress: 50,
+                content: "\$ 4,104.07",
+                label: "Spent",
+              ),
+            ),
+            ListTile(
+              title: Text("\$8,500"),
+              subtitle: Text("Monthly Limit"),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
